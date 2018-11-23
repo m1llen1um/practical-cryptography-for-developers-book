@@ -37,17 +37,42 @@ HOTP algorithm based on [HMAC](https://en.wikipedia.org/wiki/HMAC) and provide a
 HTOP(has_function, secret, value_length) -> htop
 htop.generate() -> auth_code
 htop.validate(auth_code) -> true/false
-
 ```
 
-The **hash_func** can be any cryptographic hash function. The **secret** is the arbitrary byte string, and must remain private. **value_length** define the **auth_code** length.
+The **hash_func** can be any cryptographic hash function. The **secret** is the shared arbitrary byte string which must be shared and kept private. **value_length** defines the **auth_code** length.
 
 
-[https://cryptography.io/en/latest/hazmat/primitives/twofactor/](https://cryptography.io/en/latest/hazmat/primitives/twofactor/)
+### Counter-based One-Time Password algorithm (COTP)
 
-[https://tools.ietf.org/html/rfc4226.html](https://tools.ietf.org/html/rfc4226.html)
+The HTOP function contains internal counter. In order bout parties to authenticate each other they have to keep in sync their counters.
 
-Infected Cryptosystems and Crypto Backdoors
+
+
+### Time-based One-Time Password algorithm (TOTP)
+
+Time-based One-Time Password algorithm (TOTP) is a extension of COTP, where the **counter** is the current time, defined as **Unix time**. The **time-interval** is another parameter used for the generation of TOTP, which defines a period of time of which a given authentication code will be valid. 
+
+```
+htop_counter = (current_time - initial_time) / time_interval
+```
+
+For TOTP to work correctly the bout parties must have synchronized clocks with minimal verification window (delay based on user's input, network latency and unsynchronised clocks).
+
+```
+otp = TOTP(hash_function(secret), htop_counter)
+```
+
+
+### Time-based One-Time Password  in practice
+
+Popular use case of Two-Factor Authentication is the Google Authenticator. A server generate a secret and share it as a QR code with the client. The client scan and store the secret in the [Google Authenticator](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2) application on a phone. After that the server and the phone start to generate the same one-time passwords.
+
+A web-based JavaScript [example](http://blog.tinisles.com/2011/10/google-authenticator-one-time-password-algorithm-in-javascript/) for using and testing TOTP
+
+![Time-based One-time Password example](/assets/OTP-secret-QR-code.png)
+
+
+## Infected Cryptosystems and Crypto Backdoors
 
 [https://en.wikipedia.org/wiki/Kleptography](https://en.wikipedia.org/wiki/Kleptography)
 
