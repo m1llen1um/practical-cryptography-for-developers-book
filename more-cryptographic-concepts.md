@@ -26,7 +26,7 @@ Multi-Factor authentication adds additional layers of identity authentication. U
   * What I have
   * What I am
 
-Two-Factor requires one of those three categories. The most common case of **Two-Factor Authentication** is a **user password** and a device on which will be sent/generate **one-time-password**. For generating one-time-password (OTP) the HMAC-based One-time Password algorithm is used. 
+Two-Factor Authentication requires two of those three categories to be implemented. The most common case of **Two-Factor Authentication** is a **user password** and a device on which will be sent/generate **one-time-password**. For generating one-time-password (OTP) the HMAC-based One-time Password algorithm is used. 
 
 
 ### HMAC-based One-time Password (HOTP)
