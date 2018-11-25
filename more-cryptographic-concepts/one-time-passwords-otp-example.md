@@ -1,6 +1,7 @@
 # One-Time Passwords (OTP) - Examples in Python
 
-In this section we shall provide an **examples** about how to generate and validate One-Time Passwords (OTP) in Python.
+In this section, we shall provide an **example** of how to generate and validate One-Time Passwords (OTP) in Python. The Python library of our choice is [**PyOTP**](https://github.com/pyauth/pyotp), which implement the [RFC 4226](https://tools.ietf.org/html/rfc4226) and [RFC 6238](https://tools.ietf.org/html/rfc6238) standards. If you want to use this library you should **follow the requirements** in those standards.
+
 
 Installation:
 
@@ -11,7 +12,7 @@ pip install pyotp
 
 ## Server Setup
 
-We need to create a base32 secret which has to be shared between the authentication sever and the client. We will follow the Google's OTP model which is based on a uri. It includes the shared secret, client's username and issuer's name.
+We need to **create a base32 secret** which has to be shared between the authentication server and the client. We will use [Google Authenticator OpenSource](https://github.com/google/google-authenticator) OTP model which produce a **URI for an exchange** the secret and additional client-server details. It includes the shared secret, the client's username, and the issuer's name.
 
 ```py
 import pyotp
@@ -35,7 +36,7 @@ otpauth://totp/Secure%20App:alice%40google.com?secret=S3K3TPI5MYA2M67V&issuer=Se
 
 ## User Setup
 
-Once the client store the secret in a secure way it will generate (by default) every 30 seconds a new code.
+Once the client stores the secret in a secure way it will generate in a _time-interval_ every 30 (by default) seconds a new code.
 
 ```py
 import pyotp
@@ -61,7 +62,7 @@ OTP code: 284911
 
 ## Working Example
 
-You can install Google Authenticator on Play Store or App Store and scan the QR code below:
+You can install Google Authenticator from [Google Play](https://play.google.com) or [App Store](http://appstore.com) and scan the QR code below:
 
 ![OTP Auth](/assets/one-time-passwords-otp-example-qr-code.png)
 

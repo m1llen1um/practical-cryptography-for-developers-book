@@ -55,7 +55,7 @@ Time-based One-Time Password Algorithm (TOTP) is an extension of COTP, where the
 htop_counter = (current_time - initial_time) / time_interval
 ```
 
-For TOTP to work correctly the bout parties must have synchronized clocks with minimal verification window (delay based on user's input, network latency and unsynchronised clocks).
+For TOTP to work correctly the bout parties must have synchronized clocks with minimal verification window (delay based on user's input, network latency, and unsynchronised clocks).
 
 ```
 otp = TOTP(hash_function(secret), htop_counter)
