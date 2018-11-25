@@ -36,7 +36,7 @@ otpauth://totp/Secure%20App:alice%40google.com?secret=S3K3TPI5MYA2M67V&issuer=Se
 
 ## User Setup
 
-Once the client stores the secret in a secure way it will generate in a _time-interval_ every 30 (by default) seconds a new code.
+Once the client stores the secret in a secure way, in a **time-interval**  of a 30 seconds (by default) a new code will be generated.
 
 ```py
 import pyotp
