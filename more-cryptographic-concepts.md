@@ -68,7 +68,7 @@ A popular use case of Two-Factor Authentication is the Google Authenticator. A s
 
 A web-based JavaScript [example](http://blog.tinisles.com/2011/10/google-authenticator-one-time-password-algorithm-in-javascript/) for using and testing TOTP
 
-![Time-based One-time Password example](/assets/OTP-secret-QR-code.png)
+![Time-based One-time Password example](/assets/more-cryptographic-concepts-OTP-secret-QR-code.png)
 
 
 ## Infected Cryptosystems and Crypto Backdoors
