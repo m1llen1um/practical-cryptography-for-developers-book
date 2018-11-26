@@ -12,7 +12,7 @@ pip install pyotp
 
 ## Server Setup
 
-We need to **create a base32 secret** which has to be shared between the authentication server and the client. We will use [Google Authenticator OpenSource](https://github.com/google/google-authenticator) OTP model which produce a **URI for an exchange** the secret and additional client-server details. It includes the shared secret, the client's username, and the issuer's name.
+We need to **create a base32 secret** which has to be shared between the authentication server and the client. We will use [Google Authenticator OpenSource](https://github.com/google/google-authenticator) OTP model which produce a **URI for an exchange**, the secret and additional client-server details. It includes the shared secret, the client's username, and the issuer's name.
 
 ```py
 import pyotp

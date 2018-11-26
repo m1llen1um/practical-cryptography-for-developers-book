@@ -26,7 +26,7 @@ Multi-Factor authentication adds additional layers of identity authentication. U
   * What I have
   * What I am
 
-Two-Factor Authentication requires two of those three categories to be implemented. The most common case of **Two-Factor Authentication** is a **user password** and a device on which will be sent/generate **one-time-password**. For generating one-time-password (OTP) the HMAC-based One-time Password algorithm is used. 
+Two-Factor Authentication requires two of those three categories to be implemented. The most common case of **Two-Factor Authentication** is a **user password** and a device on which will be sent/generate **one-time-password**. To generate a one-time-password (OTP) the HMAC-based One-time Password algorithm is used. 
 
 
 ### HMAC-based One-time Password (HOTP)
@@ -44,7 +44,7 @@ The **hash_func** can be any cryptographic hash function. The **secret** is the 
 
 ### Counter-based One-Time Password algorithm (COTP)
 
-The HTOP function contains an internal counter. In order bout parties to authenticate each other, they have to keep in sync their counters. Each time when HOTP was requested to generate an **auth_code** the counter iterates.
+The HTOP function contains an internal counter. In order for parties to successfully authenticate each other they have to keep their counters in sync. Each time HOTP is requested to generate an **auth_code** the counter increments.
 
 
 ### Time-based One-Time Password Algorithm (TOTP)
@@ -55,7 +55,7 @@ Time-based One-Time Password Algorithm (TOTP) is an extension of COTP, where the
 htop_counter = (current_time - initial_time) / time_interval
 ```
 
-For TOTP to work correctly the bout parties must have synchronized clocks with minimal verification window (delay based on user's input, network latency, and unsynchronised clocks).
+For TOTP to work correctly both parties need to have synchronized clocks with minimal verification time-step window (delay based on user's input, network latency, and clock time deviation).
 
 ```
 otp = TOTP(hash_function(secret), htop_counter)
